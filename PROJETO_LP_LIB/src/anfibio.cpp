@@ -34,9 +34,7 @@ int Anfibio::GetId(void){
 /**
 @brief Chamada do metodo SetClasse()
 */
-void Anfibio::SetClasse(void){
-	string classe_;
-	cin >> classe_;
+void Anfibio::SetClasse(string classe_){
 	classe = classe_;
 }
 /**
@@ -50,9 +48,7 @@ string Anfibio::GetClasse(void){
 /**
 @brief Chamada do metodo SetNome()
 */
-void Anfibio::SetNome(void){
-	string nome_;
-	cin >> nome_;
+void Anfibio::SetNome(string nome_){
 	nome = nome_;
 }
 /**
@@ -66,9 +62,7 @@ string Anfibio::GetNome(void){
 /**
 @brief Chamada do metodo SetCientifico()
 */
-void Anfibio::SetCientifico(void){
-	string cientifico_;
-	cin >> cientifico_;
+void Anfibio::SetCientifico(string cientifico_){
 	cientifico = cientifico_;
 }
 /**
@@ -82,9 +76,7 @@ string Anfibio::GetCientifico(void){
 /**
 @brief Chamada do metodo SetSexo()
 */
-void Anfibio::SetSexo(void){
-	char sexo_;
-	cin >> sexo_;
+void Anfibio::SetSexo(char sexo_){
 	sexo = sexo_;
 }
 /**
@@ -98,9 +90,7 @@ char Anfibio::GetSexo(void){
 /**
 @brief Chamada do metodo SetTamanho()
 */
-void Anfibio::SetTamanho(void){
-	float tamanho_;
-	cin >> tamanho_;
+void Anfibio::SetTamanho(float tamanho_){
 	tamanho = tamanho_;
 }
 /**
@@ -114,9 +104,7 @@ float Anfibio::GetTamanho(void){
 /**
 @brief Chamada do metodo SetDieta()
 */
-void Anfibio::SetDieta(void){
-	string dieta_;
-	cin >> dieta_;
+void Anfibio::SetDieta(string dieta_){
 	dieta = dieta_;
 }
 /**
@@ -130,9 +118,7 @@ string Anfibio::GetDieta(void){
 /**
 @brief Chamada do metodo SetVeterinario()
 */
-void Anfibio::SetVeterinario(void){
-	int veterinario_;
-	cin >> veterinario_;
+void Anfibio::SetVeterinario(int veterinario_){
 	veterinario = veterinario_;
 }
 /**
@@ -146,9 +132,7 @@ int Anfibio::GetVeterinario(void){
 /**
 @brief Chamada do metodo SetTratador()
 */
-void Anfibio::SetTratador(void){
-	int tratador_;
-	cin >> tratador_;
+void Anfibio::SetTratador(int tratador_){
 	tratador = tratador_;
 }
 /**
@@ -162,9 +146,7 @@ int Anfibio::GetTratador(void){
 /**
 @brief Chamada do metodo SetBatismo()
 */
-void Anfibio::SetBatismo(void){
-	string batismo_;
-	cin >> batismo_;
+void Anfibio::SetBatismo(string batismo_){
 	batismo = batismo_;
 }
 /**
@@ -178,9 +160,7 @@ string Anfibio::GetBatismo(void){
 /**
 @brief Chamada do metodo SetTotal()
 */
-void Anfibio::SetTotal(void){
-	int total_;
-	cin >> total_;
+void Anfibio::SetTotal(int total_){
 	total_mudas = total_;
 }
 /**
@@ -194,9 +174,7 @@ int Anfibio::GetTotal(void){
 /**
 @brief Chamada do metodo SetUltima()
 */
-void Anfibio::SetUltima(void){
-	string ultima_;
-	cin >> ultima_;
+void Anfibio::SetUltima(int ultima_){
 	ultima_muda = ultima_;
 }
 /**

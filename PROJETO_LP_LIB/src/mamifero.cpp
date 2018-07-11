@@ -34,9 +34,7 @@ int Mamifero::GetId(void){
 /**
 @brief Chamada do metodo SetClasse()
 */
-void Mamifero::SetClasse(void){
-	string classe_;
-	cin >> classe_;
+void Mamifero::SetClasse(string classe_){
 	classe = classe_;
 }
 /**
@@ -50,9 +48,7 @@ string Mamifero::GetClasse(void){
 /**
 @brief Chamada do metodo SetNome()
 */
-void Mamifero::SetNome(void){
-	string nome_;
-	cin >> nome_;
+void Mamifero::SetNome(string nome_){
 	nome = nome_;
 }
 /**
@@ -66,9 +62,7 @@ string Mamifero::GetNome(void){
 /**
 @brief Chamada do metodo SetCientifico()
 */
-void Mamifero::SetCientifico(void){
-	string cientifico_;
-	cin >> cientifico_;
+void Mamifero::SetCientifico(string cientifico_){
 	cientifico = cientifico_;
 }
 /**
@@ -82,9 +76,7 @@ string Mamifero::GetCientifico(void){
 /**
 @brief Chamada do metodo SetSexo()
 */
-void Mamifero::SetSexo(void){
-	char sexo_;
-	cin >> sexo_;
+void Mamifero::SetSexo(char sexo_){
 	sexo = sexo_;
 }
 /**
@@ -98,9 +90,7 @@ char Mamifero::GetSexo(void){
 /**
 @brief Chamada do metodo SetTamanho()
 */
-void Mamifero::SetTamanho(void){
-	float tamanho_;
-	cin >> tamanho_;
+void Mamifero::SetTamanho(float tamanho_){
 	tamanho = tamanho_;
 }
 /**
@@ -114,9 +104,7 @@ float Mamifero::GetTamanho(void){
 /**
 @brief Chamada do metodo SetDieta()
 */
-void Mamifero::SetDieta(void){
-	string dieta_;
-	cin >> dieta_;
+void Mamifero::SetDieta(string dieta_){
 	dieta = dieta_;
 }
 /**
@@ -130,9 +118,7 @@ string Mamifero::GetDieta(void){
 /**
 @brief Chamada do metodo SetVeterinario()
 */
-void Mamifero::SetVeterinario(void){
-	int veterinario_;
-	cin >> veterinario_;
+void Mamifero::SetVeterinario(int veterinario_){
 	veterinario = veterinario_;
 }
 /**
@@ -146,9 +132,7 @@ int Mamifero::GetVeterinario(void){
 /**
 @brief Chamada do metodo SetTratador()
 */
-void Mamifero::SetTratador(void){
-	int tratador_;
-	cin >> tratador_;
+void Mamifero::SetTratador(int tratador_){
 	tratador = tratador_;
 }
 /**
@@ -162,9 +146,7 @@ int Mamifero::GetTratador(void){
 /**
 @brief Chamada do metodo SetBatismo()
 */
-void Mamifero::SetBatismo(void){
-	string batismo_;
-	cin >> batismo_;
+void Mamifero::SetBatismo(string batismo_){
 	batismo = batismo_;
 }
 /**
@@ -176,10 +158,8 @@ string Mamifero::GetBatismo(void){
 /**
 @brief Chamada do metodo SetCorPelo()
 */
-void Mamifero::SetCorPelo(void){
-	string cor_;
-	cin >> cor_;
-	cor_pelo=cor_;
+void Mamifero::SetCorPelo(string cor_pelo_){
+	cor_pelo=cor_pelo_;
 }
 /**
 @brief Chamada do metodo GetCorPelo()

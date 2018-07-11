@@ -29,13 +29,13 @@ public:
 @brief Criação dos métodos Setters
 */
 	void SetId(int id_);
-	void SetProfissao(void);	
-	void SetNome(void);
-	void SetCPF(void);
-	void SetIdade(void);
-	void SetTipo(void);
-	void SetRH(void);
-	void SetEspec(void);
+	void SetProfissao(string profissao_);	
+	void SetNome(string nome_);
+	void SetCPF(string cpf_);
+	void SetIdade(string idade_);
+	void SetTipo(string tipo_);
+	void SetRH(string rh_);
+	void SetEspec(string espec_);
 	void SetAnimaisSendoCuidados(string animal, int id_ani);
 /**
 @brief Criação dos métodos Getters
@@ -44,7 +44,7 @@ public:
 	string GetProfissao(void);
 	string GetNome(void);
 	string GetCPF(void);
-	int GetIdade(void);
+	string GetIdade(void);
 	string GetTipo(void);
 	string GetRH(void);
 	string GetEspec(void);

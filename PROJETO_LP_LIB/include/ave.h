@@ -33,17 +33,17 @@ public:
 @brief Criação dos métodos Setters
 */
 	void SetId(int id_);
-	void SetClasse(void);
-	void SetNome(void);
-	void SetCientifico(void);
-	void SetSexo(void);
-	void SetTamanho(void);
-	void SetDieta(void);
-	void SetVeterinario(void);
-	void SetTratador(void);
-	void SetBatismo(void);
-	void SetTamanhoBico(void);
-	void SetEnvergadura(void);
+	void SetClasse(string classe_);
+	void SetNome(string nome_);
+	void SetCientifico(string cientifico_);
+	void SetSexo(char sexo_);
+	void SetTamanho(float tamanho_);
+	void SetDieta(string dieta_);
+	void SetVeterinario(int veterinario_);
+	void SetTratador(int tratador_);
+	void SetBatismo(string batismo);
+	void SetTamanhoBico(float tamanho_bico_);
+	void SetEnvergadura(float envergadura_);
 /**
 @brief Criação dos métodos Getters
 */

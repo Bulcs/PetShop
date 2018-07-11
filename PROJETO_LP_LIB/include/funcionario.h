@@ -26,7 +26,7 @@ protected:
 	int id;
 	string nome;
 	string cpf;
-	int idade;
+	string idade;
 	string tipo_sanguineo;
 	string fatorRH;
 	string especialidade;

@@ -9,6 +9,7 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <fstream>
 #include <map>
 #include "veterinario.h"
 #include "anfibio.h"
@@ -19,6 +20,7 @@
 using std::map;
 using std::string;
 using std::invalid_argument;
+using std::ostringstream;
 using namespace std;
 /**
 @brief Criado um template
@@ -86,9 +88,22 @@ void showMenu1(int i){
 @param string classe_ pergunta a classe para entrar no if
 @param string print_stl printa a stl
 */
-	int aux,controle_classe=0,id_veterinario,id_funcionario,j=0;
+	int aux,controle_classe=0,id_veterinario,id_funcionario,j=0,cont_anfibio=0,cont_mamifero=0,cont_reptil=0,cont_ave=0;
 	string classe_,print_stl;
+	char cont_arquivo;
 	cout << "Bem-Vindo ao PetShopMania" << endl;
+/**
+	@brief parâmetros funcionário
+*/
+	string profissao,nome,cpf,tipo,rh,espec,idade;
+
+/**
+	@brief parâmetros animais
+*/
+	string nome_animal,cientifico,dieta,batismo,cor,tipo_veneno;
+	char sexo;
+	int cont_veterinario,cont_tratador,total,venenoso;
+	float tamanho,tamanho_bico,envergadura;
 /**
 @brief Criação de ponteiros no qual apontarao para as classes criadas
 */
@@ -103,7 +118,7 @@ void showMenu1(int i){
 	map <int,string> p;
 	map <int,string> animal;
 	
-
+	inicio:
 	while(aux!=7){
 	cout << "\nDigite o número do que deseja fazer" << endl;
 	cout << "1 - Criar conta para funcionário" << endl;
@@ -123,17 +138,67 @@ void showMenu1(int i){
 		
 		veterinario = new Veterinario[100];
 
+		cout << "Deseja usar arquivo CSV ou não?[s/n]"<< endl;
+		cin >> cont_arquivo;
 		veterinario[j].SetId(j);
+		if(cont_arquivo == 's'){
+
+			ifstream ip("/home/vinicius/Desktop/LP/PROJETO_LP_LIB/include/funcionarioIn.csv");
+			if(!ip.is_open()) cout << "Erro: File " << endl;
+			while(ip.good()){
+				getline(ip,profissao,';');
+				getline(ip,nome,';');
+				getline(ip,cpf,';');
+				getline(ip,idade,';');
+				getline(ip,tipo,';');
+				getline(ip,rh,';');
+				getline(ip,espec,'\n');
+			
+				veterinario[j].SetProfissao(profissao);
+				veterinario[j].SetNome(nome);
+				veterinario[j].SetCPF(cpf);
+				veterinario[j].SetIdade(idade);
+				veterinario[j].SetTipo(tipo);
+				veterinario[j].SetRH(rh);
+				veterinario[j].SetEspec(espec);
+				veterinario[j].SetAnimaisSendoCuidados("nenhum",0);
+			}
+	/**
+	@brief inserindo as informações na STL Map
+	*/
+		p.insert(pair<int,string>(j,"Cargo: "+veterinario[j].GetProfissao()+"\n"+"Nome: "+veterinario[j].GetNome()+"\n"+"CPF: "+veterinario[j].GetCPF()+"\n"+"Idade: "+veterinario[j].GetIdade()+"\n"+"Tipo Sanguíneo: "+veterinario[j].GetTipo()+"\n"+"RH: "+veterinario[j].GetRH()+"\n"+"Especialidade: "+veterinario[j].GetEspec()));
+		cout << "----------------------------------------"<< endl;
+		cout<< "\nImpressão na stl"<< endl;
+		cout <<"Id: "<<j<< "\n" << p[j]<< endl;
+		cout << "----------------------------------------"<< endl;
+
+			ip.close();
+
+			ofstream op;
+
+			op.open("/home/vinicius/Desktop/LP/PROJETO_LP_LIB/include/funcionarioOut.csv");
+
+			op << j << ";"<<veterinario[j].GetProfissao()<<";"<<veterinario[j].GetNome()<<";"<<veterinario[j].GetCPF()<<";"<<veterinario[j].GetIdade()<<";"<<veterinario[j].GetTipo()<<";"<<veterinario[j].GetRH()<<";"<<veterinario[j].GetEspec()<<endl;
+
+			op.close();
+
+		}
+		else if (cont_arquivo=='n'){
 		cout << "Digite se é veterinario ou tratador" << endl;
-		veterinario[j].SetProfissao();
+		cin>>profissao;
+		veterinario[j].SetProfissao(profissao);
 		cout << "Digite o seu nome" << endl;
-		veterinario[j].SetNome();
+		cin>>nome;
+		veterinario[j].SetNome(nome);
 		cout << "Digite o seu CPF" << endl;
-		veterinario[j].SetCPF();
+		cin>>cpf;
+		veterinario[j].SetCPF(cpf);
 		cout << "Digite sua idade" << endl;
-		veterinario[j].SetIdade();
+		cin>>idade;
+		veterinario[j].SetIdade(idade);
 		cout << "Digite o seu Tipo sanguineo sem o fator RH(+/-)" << endl;
-		veterinario[j].SetTipo();
+		cin>>tipo;
+		veterinario[j].SetTipo(tipo);
 
 		try{
 			if(veterinario[j].GetTipo()!= "o" && veterinario[j].GetTipo()!= "a" && veterinario[j].GetTipo()!= "ab" && veterinario[j].GetTipo()!= "b") throw ErroTipoSanguineo();
@@ -143,7 +208,8 @@ void showMenu1(int i){
 		}
 
 		cout << "Digite o seu Fator RH[+/-]" << endl;
-		veterinario[j].SetRH();
+		cin>>rh;
+		veterinario[j].SetRH(rh);
 
 		try{
 			if(veterinario[j].GetRH()!= "+" && veterinario[j].GetRH()!= "-") throw ErroDeInsercao();
@@ -153,9 +219,10 @@ void showMenu1(int i){
 		}
 
 		cout << "Digite a sua especialidade" << endl;
-		veterinario[j].SetEspec();
+		cin>>espec;
+		veterinario[j].SetEspec(espec);
 		veterinario[j].SetAnimaisSendoCuidados("nenhum",0);
-
+	
 		cout << "------------------------------------" << endl;
 
 		cout << "Conta criada com sucesso" << endl;
@@ -171,6 +238,16 @@ void showMenu1(int i){
 		cout<< "\nImpressão na stl"<< endl;
 		cout <<"Id: "<<j<< "\n" << p[j]<< endl;
 		cout << "----------------------------------------"<< endl;
+		
+		ofstream op;
+
+			op.open("/home/vinicius/Desktop/LP/PROJETO_LP_LIB/include/funcionarioOut.csv");
+
+			op << j << ";"<<veterinario[j].GetProfissao()<<";"<<veterinario[j].GetNome()<<";"<<veterinario[j].GetCPF()<<";"<<veterinario[j].GetIdade()<<";"<<veterinario[j].GetTipo()<<";"<<veterinario[j].GetRH()<<";"<<veterinario[j].GetEspec()<<endl;
+
+			op.close();
+
+		}	
 	}
 
 /**
@@ -195,16 +272,19 @@ void showMenu1(int i){
 
 		
 		anfibio = new Anfibio[500];
+		cont_anfibio++;
 
 		anfibio[i].SetId(i);
 		cout << "Digite o nome do animal" << endl;
-		anfibio[i].SetNome();
-		cout << "Digite a sua classe" << endl;
-		anfibio[i].SetClasse();
+		cin >> nome_animal;
+		anfibio[i].SetNome(nome_animal);
+		anfibio[i].SetClasse("anfibio");
 		cout << "Digite o nome cientifico" << endl;
-		anfibio[i].SetCientifico();
+		cin >> cientifico;
+		anfibio[i].SetCientifico(cientifico);
 		cout << "Digite o sexo do animal[m/f]" << endl;
-		anfibio[i].SetSexo();
+		cin >> sexo;
+		anfibio[i].SetSexo(sexo);
 
 		try{
 			if(anfibio[i].GetSexo()!= 'm' && anfibio[i].GetSexo()!= 'f') throw ErroDeInsercao();
@@ -214,11 +294,14 @@ void showMenu1(int i){
 		}
 
 		cout << "Digite o tamanho" << endl;
-		anfibio[i].SetTamanho();
+		cin >> tamanho;
+		anfibio[i].SetTamanho(tamanho);
 		cout << "Digite a dieta" << endl;
-		anfibio[i].SetDieta();
+		cin >> dieta;
+		anfibio[i].SetDieta(dieta);
 		cout << "Digite se possui veterinario ou nao[1-Sim/0-Não]" << endl;
-		anfibio[i].SetVeterinario();
+		cin >> cont_veterinario;
+		anfibio[i].SetVeterinario(cont_veterinario);
 
 		try{
 			if(anfibio[i].GetVeterinario()!= 1 && anfibio[i].GetVeterinario()!= 0) throw ErroDeInsercao();
@@ -242,7 +325,8 @@ void showMenu1(int i){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite se possui tratador ou nao[1-Sim/0-Não]" << endl;
-		anfibio[i].SetTratador();
+		cin >> cont_tratador;
+		anfibio[i].SetTratador(cont_tratador);
 		if(anfibio[i].GetTratador()==1){
 
 		try{
@@ -266,9 +350,11 @@ void showMenu1(int i){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite o nome de batismo" << endl;
-		anfibio[i].SetBatismo();
+		cin >> batismo;
+		anfibio[i].SetBatismo(batismo);
 		cout << "Digite o total de mudas do animal" << endl;
-		anfibio[i].SetTotal();
+		cin >> total;
+		anfibio[i].SetTotal(total);
 
 		cout << "-------------------------------------------" << endl;
 		
@@ -292,16 +378,19 @@ void showMenu1(int i){
 
 		
 		mamifero = new Mamifero[500];
+		cont_mamifero++;
 
 		mamifero[i].SetId(i);
 		cout << "Digite o nome do animal" << endl;
-		mamifero[i].SetNome();
-		cout << "Digite a sua classe" << endl;
-		mamifero[i].SetClasse();
+		cin >> nome;
+		mamifero[i].SetNome(nome);
+		mamifero[i].SetClasse("mamifero");
 		cout << "Digite o nome cientifico" << endl;
-		mamifero[i].SetCientifico();
+		cin >> cientifico;
+		mamifero[i].SetCientifico(cientifico);
 		cout << "Digite o sexo do animal[m/f]" << endl;
-		mamifero[i].SetSexo();
+		cin >> sexo;
+		mamifero[i].SetSexo(sexo);
 
 		try{
 			if(mamifero[i].GetSexo()!= 'm' && mamifero[i].GetSexo()!= 'f') throw ErroDeInsercao();
@@ -311,11 +400,14 @@ void showMenu1(int i){
 		}
 
 		cout << "Digite o tamanho" << endl;
-		mamifero[i].SetTamanho();
+		cin >> tamanho;
+		mamifero[i].SetTamanho(tamanho);
 		cout << "Digite a dieta" << endl;
-		mamifero[i].SetDieta();
+		cin >> dieta;
+		mamifero[i].SetDieta(dieta);
 		cout << "Digite se possui veterinario ou nao[1/0]" << endl;
-		mamifero[i].SetVeterinario();
+		cin >> cont_veterinario;
+		mamifero[i].SetVeterinario(cont_veterinario);
 
 		try{
 			if(mamifero[i].GetVeterinario()!= 1 && mamifero[i].GetVeterinario()!= 0) throw ErroDeInsercao();
@@ -339,7 +431,8 @@ void showMenu1(int i){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite se possui tratador ou nao[1/0]" << endl;
-		mamifero[i].SetTratador();
+		cin >> cont_tratador;
+		mamifero[i].SetTratador(cont_tratador);
 
 		try{
 			if(mamifero[i].GetTratador()!= 1 && mamifero[i].GetTratador()!= 0) throw ErroDeInsercao();
@@ -363,9 +456,11 @@ void showMenu1(int i){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite o nome de batismo" << endl;
-		mamifero[i].SetBatismo();
+		cin >> batismo;
+		mamifero[i].SetBatismo(batismo);
 		cout << "Informe a cor do pelo" << endl;
-		mamifero[i].SetCorPelo();
+		cin >> cor;
+		mamifero[i].SetCorPelo(cor);
 
 		cout << "-------------------------------------------" << endl;
 		
@@ -390,16 +485,19 @@ void showMenu1(int i){
 
 		
 		reptil = new Reptil[500];
+		cont_reptil++;
 
 		reptil[i].SetId(i);
 		cout << "Digite o nome do animal" << endl;
-		reptil[i].SetNome();
-		cout << "Digite a sua classe" << endl;
-		reptil[i].SetClasse();
+		cin >> nome_animal;
+		reptil[i].SetNome(nome_animal);
+		reptil[i].SetClasse("reptil");
 		cout << "Digite o nome cientifico" << endl;
-		reptil[i].SetCientifico();
+		cin >> cientifico;
+		reptil[i].SetCientifico(cientifico);
 		cout << "Digite o sexo do animal[m/f]" << endl;
-		reptil[i].SetSexo();
+		cin >> sexo;
+		reptil[i].SetSexo(sexo);
 
 		try{
 			if(reptil[i].GetSexo()!= 'm' && reptil[i].GetSexo()!= 'f') throw ErroDeInsercao();
@@ -409,11 +507,14 @@ void showMenu1(int i){
 		}
 
 		cout << "Digite o tamanho" << endl;
-		reptil[i].SetTamanho();
+		cin >> tamanho;
+		reptil[i].SetTamanho(tamanho);
 		cout << "Digite a dieta" << endl;
-		reptil[i].SetDieta();
+		cin >> dieta;
+		reptil[i].SetDieta(dieta);
 		cout << "Digite se possui veterinario ou nao[1/0]" << endl;
-		reptil[i].SetVeterinario();
+		cin >> cont_veterinario;
+		reptil[i].SetVeterinario(cont_veterinario);
 
 		try{
 			if(reptil[i].GetVeterinario()!= 1 && reptil[i].GetVeterinario()!= 0) throw ErroDeInsercao();
@@ -437,7 +538,8 @@ void showMenu1(int i){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite se possui tratador ou nao[1/0]" << endl;
-		reptil[i].SetTratador();
+		cin >> cont_tratador;
+		reptil[i].SetTratador(cont_tratador);
 
 		try{
 			if(reptil[i].GetTratador()!= 1 && reptil[i].GetTratador()!= 0) throw ErroDeInsercao();
@@ -461,9 +563,11 @@ void showMenu1(int i){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite o nome de batismo" << endl;
-		reptil[i].SetBatismo();
+		cin >> batismo;
+		reptil[i].SetBatismo(batismo);
 		cout << "Informe se é venenoso ou não[1-sim/0-não]" << endl;
-		reptil[i].SetVenenoso();
+		cin >> venenoso;
+		reptil[i].SetVenenoso(venenoso);
 
 		try{
 			if(reptil[i].GetVenenoso()!= 1 && reptil[i].GetVenenoso()!= 0) throw ErroDeInsercao();
@@ -474,7 +578,8 @@ void showMenu1(int i){
 
 		if(reptil[i].GetVenenoso()==1){
 			cout << "Agora informe o tipo do veneno" << endl;
-			reptil[i].SetTipoVeneno();
+			cin >> tipo_veneno;
+			reptil[i].SetTipoVeneno(tipo_veneno);
 		}
 
 		cout << "-------------------------------------------" << endl;
@@ -506,16 +611,19 @@ void showMenu1(int i){
 
 		
 		ave = new Ave[500];
+		cont_ave++;
 
 		ave[i].SetId(i);
 		cout << "Digite o nome do animal" << endl;
-		ave[i].SetNome();
-		cout << "Digite a sua classe" << endl;
-		ave[i].SetClasse();
+		cin >> nome_animal;
+		ave[i].SetNome(nome_animal);
+		ave[i].SetClasse("ave");
 		cout << "Digite o nome cientifico" << endl;
-		ave[i].SetCientifico();
+		cin >> cientifico;
+		ave[i].SetCientifico(cientifico);
 		cout << "Digite o sexo do animal[m/f]" << endl;
-		ave[i].SetSexo();
+		cin >> sexo;
+		ave[i].SetSexo(sexo);
 
 		try{
 			if(ave[i].GetSexo()!= 'm' && ave[i].GetSexo()!= 'f') throw ErroDeInsercao();
@@ -525,11 +633,14 @@ void showMenu1(int i){
 		}
 
 		cout << "Digite o tamanho" << endl;
-		ave[i].SetTamanho();
+		cin >> tamanho;
+		ave[i].SetTamanho(tamanho);
 		cout << "Digite a dieta" << endl;
-		ave[i].SetDieta();
+		cin >> dieta;
+		ave[i].SetDieta(dieta);
 		cout << "Digite se possui veterinario ou nao[1/0]" << endl;
-		ave[i].SetVeterinario();
+		cin >> cont_veterinario;
+		ave[i].SetVeterinario(cont_veterinario);
 
 		try{
 			if(ave[i].GetVeterinario()!= 1 && ave[i].GetVeterinario()!= 0) throw ErroDeInsercao();
@@ -553,7 +664,8 @@ void showMenu1(int i){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite se possui tratador ou nao[1/0]" << endl;
-		ave[i].SetTratador();
+		cin >> cont_tratador;
+		ave[i].SetTratador(cont_tratador);
 
 		try{
 			if(ave[i].GetTratador()!= 1 && ave[i].GetTratador()!= 0) throw ErroDeInsercao();
@@ -577,11 +689,14 @@ void showMenu1(int i){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite o nome de batismo" << endl;
-		ave[i].SetBatismo();
+		cin >> batismo;
+		ave[i].SetBatismo(batismo);
 		cout << "Digite o tamanho do bico" << endl;
-		ave[i].SetTamanhoBico();
+		cin >> tamanho_bico;
+		ave[i].SetTamanhoBico(tamanho_bico);
 		cout << "Digite a envergadura da ave" << endl;
-		ave[i].SetEnvergadura();
+		cin >> envergadura;
+		ave[i].SetEnvergadura(envergadura);
 
 		cout << "-------------------------------------------" << endl;
 		
@@ -607,6 +722,49 @@ void showMenu1(int i){
 @brief Caso for digitado 3 no sistema inicial, Consultar funcionário
 */
 	if(aux==3){
+		
+
+		ifstream ip("/home/vinicius/Desktop/LP/PROJETO_LP_LIB/include/funcionarioOut.csv");
+			if(ip.is_open()){
+			string id;
+			veterinario = new Veterinario[100];
+			while(ip.good()){
+				getline(ip,id,';');
+				getline(ip,profissao,';');
+				getline(ip,nome,';');
+				getline(ip,cpf,';');
+				getline(ip,idade,';');
+				getline(ip,tipo,';');
+				getline(ip,rh,';');
+				getline(ip,espec,'\n');
+				
+				int id_;
+				istringstream (id) >> id_;
+
+				j=id_;
+
+				veterinario[j].SetProfissao(profissao);
+				veterinario[j].SetNome(nome);
+				veterinario[j].SetCPF(cpf);
+				veterinario[j].SetIdade(idade);
+				veterinario[j].SetTipo(tipo);
+				veterinario[j].SetRH(rh);
+				veterinario[j].SetEspec(espec);
+				veterinario[j].SetAnimaisSendoCuidados("nenhum",0);
+			}
+	/**
+	@brief inserindo as informações na STL Map
+	*/
+		p.insert(pair<int,string>(j,"Cargo: "+veterinario[j].GetProfissao()+"\n"+"Nome: "+veterinario[j].GetNome()+"\n"+"CPF: "+veterinario[j].GetCPF()+"\n"+"Idade: "+veterinario[j].GetIdade()+"\n"+"Tipo Sanguíneo: "+veterinario[j].GetTipo()+"\n"+"RH: "+veterinario[j].GetRH()+"\n"+"Especialidade: "+veterinario[j].GetEspec()));
+		cout << "----------------------------------------"<< endl;
+		cout<< "\nImpressão na stl"<< endl;
+		cout <<"Id: "<<j<< "\n" << p[j]<< endl;
+		cout << "----------------------------------------"<< endl;
+
+			ip.close();
+			goto inicio;
+		}else{cout << "Arquivo inexistente"<<endl;}
+
 		try{
 			if(j==0) throw ErroFuncionario();
 		}catch(ErroFuncionario &e){
@@ -671,13 +829,15 @@ if(classe_=="anfibio"){
 		anfibio = new Anfibio[500];
 
 		cout << "Digite o nome do animal" << endl;
-		anfibio[id_funcionario].SetNome();
-		cout << "Digite a sua classe" << endl;
-		anfibio[id_funcionario].SetClasse();
+		cin >> nome_animal;
+		anfibio[id_funcionario].SetNome(nome_animal);
+		anfibio[id_funcionario].SetClasse("anfibio");
 		cout << "Digite o nome cientifico" << endl;
-		anfibio[id_funcionario].SetCientifico();
+		cin>> cientifico;
+		anfibio[id_funcionario].SetCientifico(cientifico);
 		cout << "Digite o sexo do animal[m/f]" << endl;
-		anfibio[id_funcionario].SetSexo();
+		cin >> sexo;
+		anfibio[id_funcionario].SetSexo(sexo);
 
 		try{
 			if(anfibio[id_funcionario].GetSexo()!= 'm' && anfibio[id_funcionario].GetSexo()!= 'f') throw ErroDeInsercao();
@@ -687,11 +847,14 @@ if(classe_=="anfibio"){
 		}
 
 		cout << "Digite o tamanho" << endl;
-		anfibio[id_funcionario].SetTamanho();
+		cin >> tamanho;
+		anfibio[id_funcionario].SetTamanho(tamanho);
 		cout << "Digite a dieta" << endl;
-		anfibio[id_funcionario].SetDieta();
+		cin >> dieta;
+		anfibio[id_funcionario].SetDieta(dieta);
 		cout << "Digite se possui veterinario ou nao[1-Sim/0-Não]" << endl;
-		anfibio[id_funcionario].SetVeterinario();
+		cin >> cont_veterinario;
+		anfibio[id_funcionario].SetVeterinario(cont_veterinario);
 
 		try{
 			if(anfibio[id_funcionario].GetVeterinario()!= 1 && anfibio[id_funcionario].GetVeterinario()!= 0) throw ErroDeInsercao();
@@ -715,7 +878,8 @@ if(classe_=="anfibio"){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite se possui tratador ou nao[1-Sim/0-Não]" << endl;
-		anfibio[id_funcionario].SetTratador();
+		cin >> cont_tratador;
+		anfibio[id_funcionario].SetTratador(cont_tratador);
 		if(anfibio[id_funcionario].GetTratador()==1){
 
 		try{
@@ -739,9 +903,11 @@ if(classe_=="anfibio"){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite o nome de batismo" << endl;
-		anfibio[id_funcionario].SetBatismo();
+		cin >> batismo;
+		anfibio[id_funcionario].SetBatismo(batismo);
 		cout << "Digite o total de mudas do animal" << endl;
-		anfibio[id_funcionario].SetTotal();
+		cin >> total;
+		anfibio[id_funcionario].SetTotal(total);
 
 		cout << "Conta alterada com sucesso" << endl;
 		/* @brief convertendo inteiro e char para string **/
@@ -762,14 +928,17 @@ if(classe_=="anfibio"){
 
 else if(classe_=="mamifero"){
 		mamifero = new Mamifero[500];
+
 		cout << "Digite o nome do animal" << endl;
-		mamifero[id_funcionario].SetNome();
-		cout << "Digite a sua classe" << endl;
-		mamifero[id_funcionario].SetClasse();
+		cin >> nome;
+		mamifero[id_funcionario].SetNome(nome);
+		mamifero[id_funcionario].SetClasse("mamifero");
 		cout << "Digite o nome cientifico" << endl;
-		mamifero[id_funcionario].SetCientifico();
+		cin >> cientifico;
+		mamifero[id_funcionario].SetCientifico(cientifico);
 		cout << "Digite o sexo do animal[m/f]" << endl;
-		mamifero[id_funcionario].SetSexo();
+		cin >> sexo;
+		mamifero[id_funcionario].SetSexo(sexo);
 
 		try{
 			if(mamifero[id_funcionario].GetSexo()!= 'm' && mamifero[id_funcionario].GetSexo()!= 'f') throw ErroDeInsercao();
@@ -779,11 +948,14 @@ else if(classe_=="mamifero"){
 		}
 
 		cout << "Digite o tamanho" << endl;
-		mamifero[id_funcionario].SetTamanho();
+		cin >> tamanho;
+		mamifero[id_funcionario].SetTamanho(tamanho);
 		cout << "Digite a dieta" << endl;
-		mamifero[id_funcionario].SetDieta();
+		cin >> dieta;
+		mamifero[id_funcionario].SetDieta(dieta);
 		cout << "Digite se possui veterinario ou nao[1/0]" << endl;
-		mamifero[id_funcionario].SetVeterinario();
+		cin >> cont_veterinario;
+		mamifero[id_funcionario].SetVeterinario(cont_veterinario);
 
 		try{
 			if(mamifero[id_funcionario].GetVeterinario()!= 1 && mamifero[id_funcionario].GetVeterinario()!= 0) throw ErroDeInsercao();
@@ -807,7 +979,8 @@ else if(classe_=="mamifero"){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite se possui tratador ou nao[1/0]" << endl;
-		mamifero[id_funcionario].SetTratador();
+		cin >> cont_tratador;
+		mamifero[id_funcionario].SetTratador(cont_tratador);
 
 		try{
 			if(mamifero[id_funcionario].GetTratador()!= 1 && mamifero[id_funcionario].GetTratador()!= 0) throw ErroDeInsercao();
@@ -831,9 +1004,11 @@ else if(classe_=="mamifero"){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite o nome de batismo" << endl;
-		mamifero[id_funcionario].SetBatismo();
+		cin >> batismo;
+		mamifero[id_funcionario].SetBatismo(batismo);
 		cout << "Informe a cor do pelo" << endl;
-		mamifero[id_funcionario].SetCorPelo();
+		cin >> cor;
+		mamifero[id_funcionario].SetCorPelo(cor);
 
 		cout << "Conta alterada com sucesso" << endl;
 		
@@ -855,14 +1030,17 @@ else if(classe_=="mamifero"){
 
 else if(classe_=="reptil"){
 		reptil = new Reptil[500];
+
 		cout << "Digite o nome do animal" << endl;
-		reptil[id_funcionario].SetNome();
-		cout << "Digite a sua classe" << endl;
-		reptil[id_funcionario].SetClasse();
+		cin >> nome;
+		reptil[id_funcionario].SetNome(nome);
+		reptil[id_funcionario].SetClasse("reptil");
 		cout << "Digite o nome cientifico" << endl;
-		reptil[id_funcionario].SetCientifico();
+		cin >> cientifico;
+		reptil[id_funcionario].SetCientifico(cientifico);
 		cout << "Digite o sexo do animal[m/f]" << endl;
-		reptil[id_funcionario].SetSexo();
+		cin >> sexo;
+		reptil[id_funcionario].SetSexo(sexo);
 
 		try{
 			if(reptil[id_funcionario].GetSexo()!= 'm' && reptil[id_funcionario].GetSexo()!= 'f') throw ErroDeInsercao();
@@ -872,11 +1050,14 @@ else if(classe_=="reptil"){
 		}
 
 		cout << "Digite o tamanho" << endl;
-		reptil[id_funcionario].SetTamanho();
+		cin >> tamanho;
+		reptil[id_funcionario].SetTamanho(tamanho);
 		cout << "Digite a dieta" << endl;
-		reptil[id_funcionario].SetDieta();
+		cin >> dieta;
+		reptil[id_funcionario].SetDieta(dieta);
 		cout << "Digite se possui veterinario ou nao[1/0]" << endl;
-		reptil[id_funcionario].SetVeterinario();
+		cin >> cont_veterinario;
+		reptil[id_funcionario].SetVeterinario(cont_veterinario);
 
 		try{
 			if(reptil[id_funcionario].GetVeterinario()!= 1 && reptil[id_funcionario].GetVeterinario()!= 0) throw ErroDeInsercao();
@@ -900,7 +1081,8 @@ else if(classe_=="reptil"){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite se possui tratador ou nao[1/0]" << endl;
-		reptil[id_funcionario].SetTratador();
+		cin >> cont_tratador;
+		reptil[id_funcionario].SetTratador(cont_tratador);
 
 		try{
 			if(reptil[id_funcionario].GetTratador()!= 1 && reptil[id_funcionario].GetTratador()!= 0) throw ErroDeInsercao();
@@ -924,9 +1106,11 @@ else if(classe_=="reptil"){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite o nome de batismo" << endl;
-		reptil[id_funcionario].SetBatismo();
+		cin >> batismo;
+		reptil[id_funcionario].SetBatismo(batismo);
 		cout << "Informe se é venenoso ou não[1-sim/0-não]" << endl;
-		reptil[id_funcionario].SetVenenoso();
+		cin >> venenoso;
+		reptil[id_funcionario].SetVenenoso(venenoso);
 
 		try{
 			if(reptil[id_funcionario].GetVenenoso()!= 1 && reptil[id_funcionario].GetVenenoso()!= 0) throw ErroDeInsercao();
@@ -937,7 +1121,8 @@ else if(classe_=="reptil"){
 
 		if(reptil[id_funcionario].GetVenenoso()==1){
 			cout << "Agora informe o tipo do veneno" << endl;
-			reptil[id_funcionario].SetTipoVeneno();
+			cin >> tipo_veneno;
+			reptil[id_funcionario].SetTipoVeneno(tipo_veneno);
 		}
 
 		cout << "Conta alterada com sucesso" << endl;
@@ -960,14 +1145,17 @@ else if(classe_=="reptil"){
 
 else if(classe_=="ave"){
 		ave = new Ave[500];
+
 		cout << "Digite o nome do animal" << endl;
-		ave[id_funcionario].SetNome();
-		cout << "Digite a sua classe" << endl;
-		ave[id_funcionario].SetClasse();
+		cin >> nome_animal;
+		ave[id_funcionario].SetNome(nome_animal);
+		ave[id_funcionario].SetClasse("ave");
 		cout << "Digite o nome cientifico" << endl;
-		ave[id_funcionario].SetCientifico();
+		cin >> cientifico;
+		ave[id_funcionario].SetCientifico(cientifico);
 		cout << "Digite o sexo do animal[m/f]" << endl;
-		ave[id_funcionario].SetSexo();
+		cin >> sexo;
+		ave[id_funcionario].SetSexo(sexo);
 
 		try{
 			if(ave[id_funcionario].GetSexo()!= 'm' && ave[id_funcionario].GetSexo()!= 'f') throw ErroDeInsercao();
@@ -977,11 +1165,14 @@ else if(classe_=="ave"){
 		}
 
 		cout << "Digite o tamanho" << endl;
-		ave[id_funcionario].SetTamanho();
+		cin >> tamanho;
+		ave[id_funcionario].SetTamanho(tamanho);
 		cout << "Digite a dieta" << endl;
-		ave[id_funcionario].SetDieta();
+		cin >> dieta;
+		ave[id_funcionario].SetDieta(dieta);
 		cout << "Digite se possui veterinario ou nao[1/0]" << endl;
-		ave[id_funcionario].SetVeterinario();
+		cin >> cont_veterinario;
+		ave[id_funcionario].SetVeterinario(cont_veterinario);
 
 		try{
 			if(ave[id_funcionario].GetVeterinario()!= 1 && ave[id_funcionario].GetVeterinario()!= 0) throw ErroDeInsercao();
@@ -1005,7 +1196,8 @@ else if(classe_=="ave"){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite se possui tratador ou nao[1/0]" << endl;
-		ave[id_funcionario].SetTratador();
+		cin >> cont_tratador;
+		ave[id_funcionario].SetTratador(cont_tratador);
 
 		try{
 			if(ave[id_funcionario].GetTratador()!= 1 && ave[id_funcionario].GetTratador()!= 0) throw ErroDeInsercao();
@@ -1029,11 +1221,14 @@ else if(classe_=="ave"){
 			veterinario[id_veterinario].GetAnimaisSendoCuidados();
 		}
 		cout << "Digite o nome de batismo" << endl;
-		ave[id_funcionario].SetBatismo();
+		cin >> batismo;
+		ave[id_funcionario].SetBatismo(batismo);
 		cout << "Digite o tamanho do bico" << endl;
-		ave[id_funcionario].SetTamanhoBico();
+		cin >> tamanho_bico;
+		ave[id_funcionario].SetTamanhoBico(tamanho_bico);
 		cout << "Digite a envergadura da ave" << endl;
-		ave[id_funcionario].SetEnvergadura();
+		cin >> envergadura;
+		ave[id_funcionario].SetEnvergadura(envergadura);
 		cout << "Conta alterada com sucesso" << endl;
 		/* @brief tranformação de inteiro e char para string **/
 		string resultVeterinario = ToString(ave[id_funcionario].GetVeterinario());
@@ -1083,6 +1278,26 @@ else if(classe_=="ave"){
 */
 
 	if(aux==7){
+		while(j>0){
+			j--;
+			delete[] veterinario;
+		}
+		while(cont_anfibio>0){
+			delete[] anfibio;
+			cont_anfibio--;
+		}
+		while(cont_mamifero>0){
+			delete[] mamifero;
+			cont_mamifero--;
+		}
+		while(cont_reptil>0){
+			delete[] reptil;
+			cont_reptil--;
+		}
+		while(cont_ave>0){
+			delete[] ave;
+			cont_ave--;
+		}
 		exit(0);
 	}
 }

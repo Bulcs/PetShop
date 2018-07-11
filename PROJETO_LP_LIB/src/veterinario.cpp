@@ -29,9 +29,7 @@ int Veterinario::GetId(void){
 /**
 @brief Chamada do metodo SetProfissao()
 */
-void Veterinario::SetProfissao(void){
-	string profissao_;
-	cin >> profissao_;
+void Veterinario::SetProfissao(string profissao_){
 	profissao = profissao_;
 }
 /**
@@ -45,9 +43,7 @@ string Veterinario::GetProfissao(void){
 /**
 @brief Chamada do metodo SetNome()
 */
-void Veterinario::SetNome(void){
-	string nome_;
-	cin >> nome_;
+void Veterinario::SetNome(string nome_){
 	nome = nome_;
 }
 /**
@@ -61,9 +57,7 @@ string Veterinario::GetNome(void){
 /**
 @brief Chamada do metodo SetCPF()
 */
-void Veterinario::SetCPF(void){
-	string cpf_;
-	cin >> cpf_;
+void Veterinario::SetCPF(string cpf_){
 	cpf = cpf_;
 }
 /**metodo
@@ -77,15 +71,13 @@ string Veterinario::GetCPF(void){
 /**
 @brief Chamada do metodo SetIdade()
 */
-void Veterinario::SetIdade(void){
-	int idade_;
-	cin >> idade_;
+void Veterinario::SetIdade(string idade_){
 	idade = idade_;
 }
 /**
 @brief Chamada do parâmetro GetIdade()
 */
-int Veterinario::GetIdade(void){
+string Veterinario::GetIdade(void){
 	return idade;
 }
 //
@@ -93,10 +85,8 @@ int Veterinario::GetIdade(void){
 /**
 @brief Chamada do metodo SetTipo()
 */
-void Veterinario::SetTipo(void){
-	string tipo;
-	cin >> tipo;
-	tipo_sanguineo = tipo;
+void Veterinario::SetTipo(string tipo_){
+	tipo_sanguineo = tipo_;
 }
 /**
 @brief Chamada do metodo GetTipo()
@@ -109,10 +99,8 @@ string Veterinario::GetTipo(void){
 /**
 @brief Chamada do metodo SetRH()
 */
-void Veterinario::SetRH(void){
-	string RH;
-	cin >> RH;
-	fatorRH = RH;
+void Veterinario::SetRH(string rh_){
+	fatorRH = rh_;
 }
 /**
 @brief Chamada do metodo GetRH()
@@ -125,9 +113,7 @@ string Veterinario::GetRH(void){
 /**
 @brief Chamada do metodo SetEspec()
 */
-void Veterinario::SetEspec(void){
-	string espec_;
-	cin >> espec_;
+void Veterinario::SetEspec(string espec_){
 	especialidade = espec_;
 }
 /**

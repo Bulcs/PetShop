@@ -35,9 +35,7 @@ int Reptil::GetId(void){
 /**
 @brief Chamada do metodo SetClasse()
 */
-void Reptil::SetClasse(void){
-	string classe_;
-	cin >> classe_;
+void Reptil::SetClasse(string classe_){
 	classe = classe_;
 }
 /**
@@ -51,9 +49,7 @@ string Reptil::GetClasse(void){
 /**
 @brief Chamada do metodo SetNome()
 */
-void Reptil::SetNome(void){
-	string nome_;
-	cin >> nome_;
+void Reptil::SetNome(string nome_){
 	nome = nome_;
 }
 /**
@@ -67,9 +63,7 @@ string Reptil::GetNome(void){
 /**
 @brief Chamada do metodo SetCientifico()
 */
-void Reptil::SetCientifico(void){
-	string cientifico_;
-	cin >> cientifico_;
+void Reptil::SetCientifico(string cientifico_){
 	cientifico = cientifico_;
 }
 /**
@@ -83,9 +77,7 @@ string Reptil::GetCientifico(void){
 /**
 @brief Chamada do metodo SetSexo()
 */
-void Reptil::SetSexo(void){
-	char sexo_;
-	cin >> sexo_;
+void Reptil::SetSexo(char sexo_){
 	sexo = sexo_;
 }
 /**
@@ -99,9 +91,7 @@ char Reptil::GetSexo(void){
 /**
 @brief Chamada do metodo SetTamanho()
 */
-void Reptil::SetTamanho(void){
-	float tamanho_;
-	cin >> tamanho_;
+void Reptil::SetTamanho(float tamanho_){
 	tamanho = tamanho_;
 }
 /**
@@ -115,9 +105,7 @@ float Reptil::GetTamanho(void){
 /**
 @brief Chamada do metodo SetDieta()
 */
-void Reptil::SetDieta(void){
-	string dieta_;
-	cin >> dieta_;
+void Reptil::SetDieta(string dieta_){
 	dieta = dieta_;
 }
 /**
@@ -131,9 +119,7 @@ string Reptil::GetDieta(void){
 /**
 @brief Chamada do metodo SetVeterinario()
 */
-void Reptil::SetVeterinario(void){
-	int veterinario_;
-	cin >> veterinario_;
+void Reptil::SetVeterinario(int veterinario_){
 	veterinario = veterinario_;
 }
 /**
@@ -147,9 +133,7 @@ int Reptil::GetVeterinario(void){
 /**
 @brief Chamada do metodo SetTratador()
 */
-void Reptil::SetTratador(void){
-	int tratador_;
-	cin >> tratador_;
+void Reptil::SetTratador(int tratador_){
 	tratador = tratador_;
 }
 /**
@@ -163,9 +147,7 @@ int Reptil::GetTratador(void){
 /**
 @brief Chamada do metodo SetBatismo()
 */
-void Reptil::SetBatismo(void){
-	string batismo_;
-	cin >> batismo_;
+void Reptil::SetBatismo(string batismo_){
 	batismo = batismo_;
 }
 /**
@@ -179,9 +161,7 @@ string Reptil::GetBatismo(void){
 /**
 @brief Chamada do metodo SetVenenoso()
 */
-void Reptil::SetVenenoso(void){
-	int venenoso_;
-	cin >> venenoso_;
+void Reptil::SetVenenoso(int venenoso_){
 	venenoso=venenoso_;
 }
 /**
@@ -195,9 +175,7 @@ int Reptil::GetVenenoso(void){
 /**
 @brief Chamada do metodo SetTipoVeneno()
 */
-void Reptil::SetTipoVeneno(void){
-	string veneno_;
-	cin >> veneno_;
+void Reptil::SetTipoVeneno(string veneno_){
 	tipo_veneno=veneno_;
 }
 /**
