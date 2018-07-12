@@ -6,6 +6,9 @@
 * @date 07/07/2018
 */
 
+#ifndef _VETERINARIO_H_
+#define _VETERINARIO_H_
+
 #include <iostream>
 #include "veterinario.h"
 #include <string>
@@ -137,3 +140,11 @@ void Veterinario::SetAnimaisSendoCuidados(string animais, int id_ani){
 void Veterinario::GetAnimaisSendoCuidados(void){
 	cout << "O funcionário está cuidando do " << animalCuidado << " de id:" << id_animal<< endl;
 }
+
+std::ostream& operator<<(std::ostream &o,Veterinario f){
+	o <<"Id: "<< f.id << "\n" << "Cargo: " << f.profissao << "\n" << "Nome: " << f.nome << "\n" << "CPF: " << f.cpf << "\n" << "Idade: "<< f.idade << "\n"<< "Tipo Sanguineo: " << f.tipo_sanguineo << "\n" << "Fator RH: "<< f.fatorRH<< "\n" << "Especialidade: " << f.especialidade << endl; 
+	return o;
+}
+
+
+#endif

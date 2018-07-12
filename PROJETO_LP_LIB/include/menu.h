@@ -5,6 +5,9 @@
 * @since 18/06/2018
 * @date 07/07/2018
 */
+#ifndef _VETERINARIO_H_
+#define _VETERINARIO_H_
+
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -168,7 +171,7 @@ void showMenu1(int i){
 		p.insert(pair<int,string>(j,"Cargo: "+veterinario[j].GetProfissao()+"\n"+"Nome: "+veterinario[j].GetNome()+"\n"+"CPF: "+veterinario[j].GetCPF()+"\n"+"Idade: "+veterinario[j].GetIdade()+"\n"+"Tipo Sanguíneo: "+veterinario[j].GetTipo()+"\n"+"RH: "+veterinario[j].GetRH()+"\n"+"Especialidade: "+veterinario[j].GetEspec()));
 		cout << "----------------------------------------"<< endl;
 		cout<< "\nImpressão na stl"<< endl;
-		cout <<"Id: "<<j<< "\n" << p[j]<< endl;
+		cout << veterinario[j];
 		cout << "----------------------------------------"<< endl;
 
 			ip.close();
@@ -1662,3 +1665,5 @@ else if(classe_=="ave"){
 	}
 }
 }
+
+#endif

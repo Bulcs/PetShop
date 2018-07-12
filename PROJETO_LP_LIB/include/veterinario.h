@@ -9,6 +9,7 @@
 #include <string>
 #include "funcionario.h"
 using std::string;
+using namespace std;
 /**
 @brief Criação da classe Veterinario
 @details A classe veterinário herda os parâmetros da classe funcionario
@@ -49,4 +50,7 @@ public:
 	string GetRH(void);
 	string GetEspec(void);
 	void GetAnimaisSendoCuidados(void);
+
+friend std::ostream& operator<< (std::ostream &o,Veterinario f);
 };
+

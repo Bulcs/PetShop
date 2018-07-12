@@ -30,6 +30,8 @@ protected:
 @param int tratador verifica se tem algum tratador tratando o animal
 @param string batismo guarda o nome de batismo do animal
 */
+	Animal(){};
+	~Animal(){};
 	int id;
 	string classe;
 	string nome;
@@ -40,4 +42,5 @@ protected:
 	int veterinario;
 	int tratador;
 	string batismo;
+
 };
