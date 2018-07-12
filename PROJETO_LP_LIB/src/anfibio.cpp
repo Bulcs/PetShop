@@ -76,13 +76,13 @@ string Anfibio::GetCientifico(void){
 /**
 @brief Chamada do metodo SetSexo()
 */
-void Anfibio::SetSexo(char sexo_){
+void Anfibio::SetSexo(string sexo_){
 	sexo = sexo_;
 }
 /**
 @brief Chamada do metodo GetSexo()
 */
-char Anfibio::GetSexo(void){
+string Anfibio::GetSexo(void){
 	return sexo;
 }
 //

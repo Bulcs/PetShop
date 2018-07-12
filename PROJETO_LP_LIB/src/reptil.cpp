@@ -77,13 +77,13 @@ string Reptil::GetCientifico(void){
 /**
 @brief Chamada do metodo SetSexo()
 */
-void Reptil::SetSexo(char sexo_){
+void Reptil::SetSexo(string sexo_){
 	sexo = sexo_;
 }
 /**
 @brief Chamada do metodo GetSexo()
 */
-char Reptil::GetSexo(void){
+string Reptil::GetSexo(void){
 	return sexo;
 }
 //

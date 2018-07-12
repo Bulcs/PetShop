@@ -76,13 +76,13 @@ string Ave::GetCientifico(void){
 /**
 @brief Chamada do metodo SetSexo()
 */
-void Ave::SetSexo(char sexo_){
+void Ave::SetSexo(string sexo_){
 	sexo = sexo_;
 }
 /**
 @brief Chamada do metodo GetSexo()
 */
-char Ave::GetSexo(void){
+string Ave::GetSexo(void){
 	return sexo;
 }
 //

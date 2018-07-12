@@ -37,7 +37,7 @@ public:
 	void SetClasse(string classe_);
 	void SetNome(string nome_);
 	void SetCientifico(string cientifico_);
-	void SetSexo(char sexo_);
+	void SetSexo(string sexo_);
 	void SetTamanho(float tamanho_);
 	void SetDieta(string dieta_);
 	void SetVeterinario(int veterinario_);
@@ -52,7 +52,7 @@ public:
 	string GetClasse(void);
 	string GetNome(void);
 	string GetCientifico(void);
-	char GetSexo(void);
+	string GetSexo(void);
 	float GetTamanho(void);
 	string GetDieta(void);
 	int GetVeterinario(void);

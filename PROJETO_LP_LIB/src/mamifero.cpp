@@ -76,13 +76,13 @@ string Mamifero::GetCientifico(void){
 /**
 @brief Chamada do metodo SetSexo()
 */
-void Mamifero::SetSexo(char sexo_){
+void Mamifero::SetSexo(string sexo_){
 	sexo = sexo_;
 }
 /**
 @brief Chamada do metodo GetSexo()
 */
-char Mamifero::GetSexo(void){
+string Mamifero::GetSexo(void){
 	return sexo;
 }
 //

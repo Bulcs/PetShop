@@ -34,7 +34,7 @@ protected:
 	string classe;
 	string nome;
 	string cientifico;
-	char sexo;
+	string sexo;
 	float tamanho;
 	string dieta;
 	int veterinario;
