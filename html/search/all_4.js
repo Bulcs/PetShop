@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['getanimaissendocuidados',['GetAnimaisSendoCuidados',['../class_veterinario.html#a4d78963bea3ad8951d720571fec0de90',1,'Veterinario']]],
+  ['getbatismo',['GetBatismo',['../class_anfibio.html#ad68274710837e3453769181b8cc2c1de',1,'Anfibio::GetBatismo()'],['../class_ave.html#af6ff1f6baf664ffefa121372a3830f4f',1,'Ave::GetBatismo()'],['../class_mamifero.html#a0b7058dd9e9fc48082935ef0a8e4f1e8',1,'Mamifero::GetBatismo()'],['../class_reptil.html#ad95008c8ec8acb80e632811eb08c3bdc',1,'Reptil::GetBatismo()']]],
+  ['getcientifico',['GetCientifico',['../class_anfibio.html#a8e8c536d4cc6e6f6b99cd1d7f3320344',1,'Anfibio::GetCientifico()'],['../class_ave.html#ac8f51606a52091a940e2fe8b81eee1c3',1,'Ave::GetCientifico()'],['../class_mamifero.html#ab3a9c6cda70d78e7e870e90d30494349',1,'Mamifero::GetCientifico()'],['../class_reptil.html#a1aba7e245ab718875a7efe3751825671',1,'Reptil::GetCientifico()']]],
+  ['getclasse',['GetClasse',['../class_anfibio.html#a0e33964b0b8e576cbf0b1f889e254cad',1,'Anfibio::GetClasse()'],['../class_ave.html#a1bea1200baf9ecc47899b6797a86c675',1,'Ave::GetClasse()'],['../class_mamifero.html#a7e075212c74fcc33cfe0ac10de5646fa',1,'Mamifero::GetClasse()'],['../class_reptil.html#ad69152a0fc23d1ee082eeb452e25f8ef',1,'Reptil::GetClasse()']]],
+  ['getcorpelo',['GetCorPelo',['../class_mamifero.html#a1a10413bed9db3c6ddcd39ed55ecc7a2',1,'Mamifero']]],
+  ['getcpf',['GetCPF',['../class_veterinario.html#aace91dab5527b47f0327dc0f776dfaac',1,'Veterinario']]],
+  ['getdieta',['GetDieta',['../class_anfibio.html#adabeacbe469bd305ecb8fb21328523b6',1,'Anfibio::GetDieta()'],['../class_ave.html#ab7b88331c601b8beb16969b0cc923b6f',1,'Ave::GetDieta()'],['../class_mamifero.html#a774cf3110947e5a3a0ce83aaf1f385aa',1,'Mamifero::GetDieta()'],['../class_reptil.html#a76798ccf7c76de9cf3c17a4ce92dfd41',1,'Reptil::GetDieta()']]],
+  ['getenvergadura',['GetEnvergadura',['../class_ave.html#a91103e0a19d277bdd0b8fd41e86618ed',1,'Ave']]],
+  ['getespec',['GetEspec',['../class_veterinario.html#aeae677cd50450abdcbb3736ac2764263',1,'Veterinario']]],
+  ['getid',['GetId',['../class_anfibio.html#a88b335b835421e611f5e0705208781a0',1,'Anfibio::GetId()'],['../class_ave.html#a5c3d1e3b7b356a08b2fddd242c2fa426',1,'Ave::GetId()'],['../class_mamifero.html#ae7433cef065a2d6b76f510efc4f3e7db',1,'Mamifero::GetId()'],['../class_reptil.html#af94ef2eb8b24f8751ed83a5f9786684a',1,'Reptil::GetId()'],['../class_veterinario.html#a05e6b828a11c06782a03a03700e5d3ed',1,'Veterinario::GetId()']]],
+  ['getidade',['GetIdade',['../class_veterinario.html#aa0ff9a2f882f7632ba2272360a8e431f',1,'Veterinario']]],
+  ['getnome',['GetNome',['../class_anfibio.html#a36fe4e45be7a9477948d44d40c814205',1,'Anfibio::GetNome()'],['../class_ave.html#ae9085c0c2d1ac90fa5c659f15ac7955d',1,'Ave::GetNome()'],['../class_mamifero.html#a22f2b88c72b6d1b15af4ded57a07c759',1,'Mamifero::GetNome()'],['../class_reptil.html#a0d2e760162e67653506bd3cbfc1b930f',1,'Reptil::GetNome()'],['../class_veterinario.html#a09dc2bb1761d136ce89ca984d9851861',1,'Veterinario::GetNome()']]],
+  ['getprofissao',['GetProfissao',['../class_veterinario.html#a7792b6a15b65a081a81920a8e52a3e95',1,'Veterinario']]],
+  ['getrh',['GetRH',['../class_veterinario.html#a00df6b65d60ccf1f95d984685e53196f',1,'Veterinario']]],
+  ['getsexo',['GetSexo',['../class_anfibio.html#a61ad36eb6d5ce4ab2036f116eac167aa',1,'Anfibio::GetSexo()'],['../class_ave.html#a8c629be919df2c2d5160456e7e68251d',1,'Ave::GetSexo()'],['../class_mamifero.html#afe12f7f2be24fa0abb9ffc2d9aebc802',1,'Mamifero::GetSexo()'],['../class_reptil.html#abcf95fc720cd1366ba40cd5d5c6b8528',1,'Reptil::GetSexo()']]],
+  ['gettamanho',['GetTamanho',['../class_anfibio.html#a68248d0111d0699c570762dd14b7163a',1,'Anfibio::GetTamanho()'],['../class_ave.html#a6e5ae71a63a769725619ffa4f1c6bd15',1,'Ave::GetTamanho()'],['../class_mamifero.html#ad2ef734023f5c188b4ca46b3d4bb39f7',1,'Mamifero::GetTamanho()'],['../class_reptil.html#af6b79c8d921fdfe5dc5e894baeec2b25',1,'Reptil::GetTamanho()']]],
+  ['gettamanhobico',['GetTamanhoBico',['../class_ave.html#a2b2b43698ae468b9bb1c64174064313e',1,'Ave']]],
+  ['gettipo',['GetTipo',['../class_veterinario.html#aeb8048b01d42ac31784b4d58508c492f',1,'Veterinario']]],
+  ['gettipoveneno',['GetTipoVeneno',['../class_reptil.html#a8a58a42247c9ae9304e5f0d5dce72513',1,'Reptil']]],
+  ['gettotal',['GetTotal',['../class_anfibio.html#a6d2f6c8090371f63615cb74868396c06',1,'Anfibio']]],
+  ['gettratador',['GetTratador',['../class_anfibio.html#af0be74ef5f7cf1b51564350d17d2683d',1,'Anfibio::GetTratador()'],['../class_ave.html#ac205b0f275e6647ad7ad4abbcb323912',1,'Ave::GetTratador()'],['../class_mamifero.html#aefe8a8e19be80f7486a475b19c4d97ac',1,'Mamifero::GetTratador()'],['../class_reptil.html#aa944480277a1a038f7054fdc3bd649df',1,'Reptil::GetTratador()']]],
+  ['getultima',['GetUltima',['../class_anfibio.html#a41391515ad316e2bc3215328f25ed8ea',1,'Anfibio']]],
+  ['getvenenoso',['GetVenenoso',['../class_reptil.html#ad2b4e6c613913b4ba4f6a09ad9b3885e',1,'Reptil']]],
+  ['getveterinario',['GetVeterinario',['../class_anfibio.html#a923b28f7a27724fd9fba0856d4fc7f76',1,'Anfibio::GetVeterinario()'],['../class_ave.html#aad85251d6f3411c8d4f6ba0a099acf90',1,'Ave::GetVeterinario()'],['../class_mamifero.html#ad9b68bdf7b8ab72cfe40a6969fd0c1e3',1,'Mamifero::GetVeterinario()'],['../class_reptil.html#a41e51f10fb19549fbbf667c20adfc19f',1,'Reptil::GetVeterinario()']]]
+];

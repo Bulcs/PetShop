@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['setanimaissendocuidados',['SetAnimaisSendoCuidados',['../class_veterinario.html#a95e172a928028f2c6653fbec89e32cc3',1,'Veterinario']]],
+  ['setbatismo',['SetBatismo',['../class_anfibio.html#acd9cc4d047b66b880324fb5f9da5e32c',1,'Anfibio::SetBatismo()'],['../class_ave.html#a9e414f7bb59aae864f313b4be840d49c',1,'Ave::SetBatismo()'],['../class_mamifero.html#a25532703d9fdb32d3465988e0c202ca1',1,'Mamifero::SetBatismo()'],['../class_reptil.html#adb957fc6ae3d2f880df6ca7dc489c93e',1,'Reptil::SetBatismo()']]],
+  ['setcientifico',['SetCientifico',['../class_anfibio.html#a00eeb256834dbcd4601b2e82a5a22d5c',1,'Anfibio::SetCientifico()'],['../class_ave.html#a4e3b9ce1813889f3c89ad68100a2e297',1,'Ave::SetCientifico()'],['../class_mamifero.html#a284d68ac9ac3c0cc5a08886117d7fe9b',1,'Mamifero::SetCientifico()'],['../class_reptil.html#a006cddf27b96025050a97489b3da023b',1,'Reptil::SetCientifico()']]],
+  ['setclasse',['SetClasse',['../class_anfibio.html#af33d573093b0c426b92f94fce9fffed8',1,'Anfibio::SetClasse()'],['../class_ave.html#ae393103817453e9165a9ff7fb6a73bd9',1,'Ave::SetClasse()'],['../class_mamifero.html#ae4208a1463184117191a92dbbba14386',1,'Mamifero::SetClasse()'],['../class_reptil.html#a2bc2e371c5a2ff4a8caddddb2015621c',1,'Reptil::SetClasse()']]],
+  ['setcorpelo',['SetCorPelo',['../class_mamifero.html#a3ad7da527f6329f3eae52b05839805f1',1,'Mamifero']]],
+  ['setcpf',['SetCPF',['../class_veterinario.html#a3d534f523d35ed98dfd86498a2cdb59b',1,'Veterinario']]],
+  ['setdieta',['SetDieta',['../class_anfibio.html#a8ccb409ba5e4faaab7e03425d77bc0fb',1,'Anfibio::SetDieta()'],['../class_ave.html#abae4d4e57ba2ef8f043d937b1fe0074e',1,'Ave::SetDieta()'],['../class_mamifero.html#a75ef68575458f4de5e0e749c0794c384',1,'Mamifero::SetDieta()'],['../class_reptil.html#a6d6e01ef1c8b79ad11ab9ff3b8e5f3af',1,'Reptil::SetDieta()']]],
+  ['setenvergadura',['SetEnvergadura',['../class_ave.html#aa5180cce1170f89f2d8cb547a4871dd8',1,'Ave']]],
+  ['setespec',['SetEspec',['../class_veterinario.html#a1d6c0ea6363adaf4b291ee72823cab89',1,'Veterinario']]],
+  ['setid',['SetId',['../class_anfibio.html#a2efef746a06025c1b75c29c62f23909d',1,'Anfibio::SetId()'],['../class_ave.html#add888c033de541a44c5c31a31db5ad1d',1,'Ave::SetId()'],['../class_mamifero.html#af4889c9c225884eae0f5da5db0eb9bf3',1,'Mamifero::SetId()'],['../class_reptil.html#a423a8162894755b69a63eefd91ba97a4',1,'Reptil::SetId()'],['../class_veterinario.html#a1852e86bed8b254e2f9b49add597b5fb',1,'Veterinario::SetId()']]],
+  ['setidade',['SetIdade',['../class_veterinario.html#ab77b4bda2c0785c8b696094a33f75f26',1,'Veterinario']]],
+  ['setnome',['SetNome',['../class_anfibio.html#a04a14e96798b0e7372c523851649b3bf',1,'Anfibio::SetNome()'],['../class_ave.html#a577d65a227548e30ced15c41706d38ae',1,'Ave::SetNome()'],['../class_mamifero.html#a17c9d20e75ab1a92432792e99871de64',1,'Mamifero::SetNome()'],['../class_reptil.html#accbaa131894ade6bc1a4c7ad5f7b2a48',1,'Reptil::SetNome()'],['../class_veterinario.html#a4e153e6b5d2c869ace39958d69b9fa96',1,'Veterinario::SetNome()']]],
+  ['setprofissao',['SetProfissao',['../class_veterinario.html#a68be9e5f7903d1c3683e91ec3e4ea272',1,'Veterinario']]],
+  ['setrh',['SetRH',['../class_veterinario.html#a0222839ceb93ef39a9906f3ba8bfa118',1,'Veterinario']]],
+  ['setsexo',['SetSexo',['../class_anfibio.html#acc02cae7ba5656abf06ecf9ac851b8f8',1,'Anfibio::SetSexo()'],['../class_ave.html#a96c89cec0539097e96fbfd77a87d59c2',1,'Ave::SetSexo()'],['../class_mamifero.html#a975d11c7244dbc2f623fbcf439eb0e05',1,'Mamifero::SetSexo()'],['../class_reptil.html#ac4d479c283df91b3e314aaf31ee37be5',1,'Reptil::SetSexo()']]],
+  ['settamanho',['SetTamanho',['../class_anfibio.html#a965a795da7d5909264c62d5864d90e9f',1,'Anfibio::SetTamanho()'],['../class_ave.html#a5b83fc1a6189ea2fbe72789fd27f2637',1,'Ave::SetTamanho()'],['../class_mamifero.html#a9f1140c23345bf034a354e95d26c01ef',1,'Mamifero::SetTamanho()'],['../class_reptil.html#a4e05aa53a93106b223811a39fb5827ee',1,'Reptil::SetTamanho()']]],
+  ['settamanhobico',['SetTamanhoBico',['../class_ave.html#a65e15e29bf02bb6842ca16e6d5b18708',1,'Ave']]],
+  ['settipo',['SetTipo',['../class_veterinario.html#a680897038a4065995d5ff9641e77719b',1,'Veterinario']]],
+  ['settipoveneno',['SetTipoVeneno',['../class_reptil.html#a192f9f19598d9940f4615b99d76e8aa7',1,'Reptil']]],
+  ['settotal',['SetTotal',['../class_anfibio.html#a0cbd78686caf1e36795f2c56a776d867',1,'Anfibio']]],
+  ['settratador',['SetTratador',['../class_anfibio.html#a457f9740bfcc64ce5cdf4a861e452455',1,'Anfibio::SetTratador()'],['../class_ave.html#ae82166abb8f2492f431519fdcf25cb40',1,'Ave::SetTratador()'],['../class_mamifero.html#a749a1745469c00afd74575f02c900573',1,'Mamifero::SetTratador()'],['../class_reptil.html#ae6748d6773c05db1811f72cf4fff3c3c',1,'Reptil::SetTratador()']]],
+  ['setultima',['SetUltima',['../class_anfibio.html#aef72a726adc5c20c02b8269a290dcd94',1,'Anfibio']]],
+  ['setvenenoso',['SetVenenoso',['../class_reptil.html#a761a48494eec660b0d7c72bd7b9d8aea',1,'Reptil']]],
+  ['setveterinario',['SetVeterinario',['../class_anfibio.html#a28e9be44ac5c33893861e17c37f47dab',1,'Anfibio::SetVeterinario()'],['../class_ave.html#ad382a03d23a444e7288e2825f1af08db',1,'Ave::SetVeterinario()'],['../class_mamifero.html#af7f46618a26baef314e26affc4e93363',1,'Mamifero::SetVeterinario()'],['../class_reptil.html#a279316a914385dee8fe1a1ff0c311162',1,'Reptil::SetVeterinario()']]]
+];
