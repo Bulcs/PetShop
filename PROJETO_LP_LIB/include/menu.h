@@ -171,6 +171,7 @@ void showMenu1(int i){
 		p.insert(pair<int,string>(j,"Cargo: "+veterinario[j].GetProfissao()+"\n"+"Nome: "+veterinario[j].GetNome()+"\n"+"CPF: "+veterinario[j].GetCPF()+"\n"+"Idade: "+veterinario[j].GetIdade()+"\n"+"Tipo Sanguíneo: "+veterinario[j].GetTipo()+"\n"+"RH: "+veterinario[j].GetRH()+"\n"+"Especialidade: "+veterinario[j].GetEspec()));
 		cout << "----------------------------------------"<< endl;
 		cout<< "\nImpressão na stl"<< endl;
+	/** @brief impreção do funcionario na sobrecarga de operadores */
 		cout << veterinario[j];
 		cout << "----------------------------------------"<< endl;
 
@@ -1641,10 +1642,7 @@ else if(classe_=="ave"){
 */
 
 	if(aux==7){
-		while(auxiliar_func>0){
-			auxiliar_func--;
 			delete[] veterinario;
-		}
 		while(cont_anfibio>0){
 			delete[] anfibio;
 			cont_anfibio--;
